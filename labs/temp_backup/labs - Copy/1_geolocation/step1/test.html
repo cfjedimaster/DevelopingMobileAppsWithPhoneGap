@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>GeoLocation 1</title>
+<script>
+function init() {
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(gotLocation,errorHandler);
+  }
+}
+
+function gotLocation(position) {
+  console.dir(position);
+}
+
+function errorHandler(e) {
+  console.dir(e);
+}
+</script>
+</head>
+
+<body onload="init()">
+
+</body>
+</html>

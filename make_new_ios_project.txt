@@ -1,0 +1,5 @@
+/Users/ray/Dropbox/Mobile/phonegap2.2/lib/ios/bin/create/create <project_folder_path> <package_name> <project_name> then press "Enter"
+
+then go into folder and open x.xcodeproj
+
+subl www

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>GeoLocation 2</title>
+<script>
+var statusDiv;
+
+function init() {
+	statusDiv = document.querySelector("#status");
+
+	if(navigator.geolocation) {
+		statusDiv.innerHTML = "Getting your location...";
+		navigator.geolocation.getCurrentPosition(gotLocation,errorHandler);
+	}
+}
+
+function gotLocation(position) {
+	console.dir(position);
+	statusDiv.innerHTML = "";
+	mapImg = document.querySelector("#theMap");
+	mapImg.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude +"," +
+				 position.coords.longitude+"&zoom=12&size=400x400&sensor=false";
+//	statusDiv.innerHTML = "Got it. You are at " + position.coords.latitude + " latitude " + 
+//						  " and "+ position.coords.longitude + " longitude.";
+}
+
+function errorHandler(e) {
+	console.dir(e);
+	statusDiv.innerHTML = "I'm sorry, but I couldn't find your position.";
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<div id="status">
+</div>
+<img id="theMap">
+
+</body>
+</html>
